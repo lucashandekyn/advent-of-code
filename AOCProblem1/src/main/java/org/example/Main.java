@@ -14,15 +14,7 @@ public class Main {
         while (sc.hasNextLine()){
                 line = sc.nextLine();
                 if (line.equals("")) {
-                    if (som>=top3[0]&&som<top3[1]){
-                        top3[0] = som;
-                    } else if (som>=top3[1]&&som<top3[2]){
-                        top3[0] = top3[1];
-                        top3[1] = som;
-                    } else if (som>=top3[2]) {
-                        top3[1] = top3[2];
-                        top3[2] = som;
-                    }
+                    putInArray(som, top3);
                     som = 0;
                 }
                 else {
@@ -30,6 +22,12 @@ public class Main {
                     som += x;
                 }
         }
+        putInArray(som, top3);
+        int arraysom = top3[0] + top3[1] + top3[2];
+        System.out.println("aantal calorien van de elfmax: " + arraysom + Arrays.toString(top3));
+    }
+
+    private static void putInArray(int som, int[] top3) {
         if (som>=top3[0]&&som<top3[1]){
             top3[0] = som;
         } else if (som>=top3[1]&&som<top3[2]){
@@ -39,7 +37,5 @@ public class Main {
             top3[1] = top3[2];
             top3[2] = som;
         }
-        int arraysom = top3[0] + top3[1] + top3[2];
-        System.out.println("aantal calorien van de elfmax: " + arraysom + Arrays.toString(top3));
     }
 }
